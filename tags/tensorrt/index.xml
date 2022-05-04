@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TensorRT on Zhao Peng&#39;s Blogs</title>
-    <link>/tags/tensorrt/</link>
+    <link>http://pzhao-eng.github.io/tags/tensorrt.html</link>
     <description>Recent content in TensorRT on Zhao Peng&#39;s Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.zhaopeng.com/&#34;&gt;Zhao Peng&lt;/a&gt; 
 </copyright>
-    <lastBuildDate>Wed, 20 Apr 2022 08:47:11 +0100</lastBuildDate><atom:link href="/tags/tensorrt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 08:47:11 +0100</lastBuildDate><atom:link href="http://pzhao-eng.github.io/tags/tensorrt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用onnx导出模型文献通过TensorRT加速推理过程</title>
-      <link>/posts/onnx_to_tensorrt/</link>
+      <link>http://pzhao-eng.github.io/posts/onnx_to_tensorrt.html</link>
       <pubDate>Wed, 20 Apr 2022 08:47:11 +0100</pubDate>
       
-      <guid>/posts/onnx_to_tensorrt/</guid>
+      <guid>http://pzhao-eng.github.io/posts/onnx_to_tensorrt.html</guid>
       <description>本节内容参考了TensorRT的cookbook内容以及TensorRT安装包内的sample。接下来的内容将首先使用pytorch训练并导出onnx</description>
     </item>
     

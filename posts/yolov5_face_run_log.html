@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>yolov5-face 运行log | Zhao Peng&#39;s Blogs</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="http://pzhao-eng.github.io/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css" integrity="sha384-nOxjUON&#43;U0sDOPqaCFvwaFXeOw8tz4V&#43;eS5el7B&#43;qQXU1VE9tVTLwmqcPaYiuukt">
+<script defer src="http://pzhao-eng.github.io/js/eureka.min.eb6659c67f29038a032788e9ed8a7f2f2d069395707a85a6b347773a01e3d475cb17c307fa0cd8733e1bbdc3f34e0029.js" integrity="sha384-62ZZxn8pA4oDJ4jp7Yp/Ly0Gk5VweoWms0d3OgHj1HXLF8MH&#43;gzYcz4bvcPzTgAp"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/xcode.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/c.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/cpp.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/cmake.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/python.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="http://pzhao-eng.github.io/js/fontawesome.min.069e075b818028f70483364ef15e148e8662aa8c0696dcd8ab2615116e046f53081d39a0bc58c723f1c661786b459819.js" integrity="sha384-Bp4HW4GAKPcEgzZO8V4UjoZiqowGltzYqyYVEW4Eb1MIHTmgvFjHI/HGYXhrRZgZ"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],displaymode:"true",
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="http://pzhao-eng.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://pzhao-eng.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="yolov5推理过程实现">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"http://pzhao-eng.github.io/posts.html"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"yolov5-face 运行log",
+      "item":"http://pzhao-eng.github.io/posts/yolov5_face_run_log.html"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://pzhao-eng.github.io/posts/yolov5_face_run_log.html"
+    },
+    "headline": "yolov5-face 运行log | Zhao Peng\u0027s Blogs","datePublished": "2022-03-25T08:47:11+01:00",
+    "dateModified": "2022-03-25T08:47:11+01:00",
+    "wordCount":  2423 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Zhao Peng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://pzhao-eng.github.io/images/icon.png"
+        }
+        },
+    "description": "yolov5推理过程实现"
+}
+</script><meta property="og:title" content="yolov5-face 运行log | Zhao Peng&#39;s Blogs" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="http://pzhao-eng.github.io/images/icon.png">
+
+
+<meta property="og:url" content="http://pzhao-eng.github.io/posts/yolov5_face_run_log.html" />
+
+
+
+<meta property="og:description" content="yolov5推理过程实现" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Zhao Peng&#39;s Blogs" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-03-25T08:47:11&#43;01:00" />
+
+
+<meta property="article:modified_time" content="2022-03-25T08:47:11&#43;01:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="yolo" />
+
+<meta property="article:tag" content="卷积神经网络" />
+
+
+
+
+
+<meta property="og:see_also" content="http://pzhao-eng.github.io/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html" />
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="../" class="me-6 text-primary-text text-xl font-bold">Zhao Peng&#39;s Blogs</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="../about/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="../posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">归档</a>
+            <a href="../categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">分类</a>
+            <a href="../tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">标签</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">yolov5-face 运行log</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-03-25</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+    <div class="me-6 my-2">
+      <i class="fas fa-folder me-1"></i>
+      
+        <a href="http://pzhao-eng.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.html" class="hover:text-eureka"
+          >深度学习</a
+        >
+      
+    </div>
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h2 id="1--yolov5-facehttpsgithubcomgassolidyolov5-face-python-infer过程实现">1  <a href="https://github.com/gasSolid/yolov5-face">yolov5-face</a> python infer过程实现</h2>
+<h3 id="10-yolov5介绍">1.0 yolov5介绍</h3>
+<ul>
+<li><a href="https://bbs.cvmart.net/articles/3141">快速介绍</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzIwOTc2MTUyMg==&amp;mid=2247506971&amp;idx=2&amp;sn=25adc23007e59207c1b85947b08fd61d&amp;chksm=976c7986a01bf0903c55996dfc3a6fab019d2c64a0581206f8b4969272b130db7f717b3e1eee#rd">从yolov1-v5</a></li>
+<li><a href="https://towardsdatascience.com/mask-detection-using-yolov5-ae40979227a6">masked face yolov5</a></li>
+<li>吴恩达<a href="https://www.youtube.com/watch?v=KTB_OFoAQcc&amp;list=RDCMUCcIXc5mJsHVYTZR1maL5l9w&amp;index=14">deeplearning.ai</a></li>
+<li>大白<a href="https://zhuanlan.zhihu.com/p/143747206">资料</a></li>
+</ul>
+<h3 id="11-运行过程httpswwwcxymmnetarticlem0_58348465121423964">1.1 <a href="https://www.cxymm.net/article/m0_58348465/121423964">运行过程</a></h3>
+<ul>
+<li>
+<p>下载<a href="http://shuoyang1213.me/WIDERFACE/">WIDERFace数据集</a>,以及对应的label.txt<a href="https://drive.google.com/file/d/1tU_IjyOwGQfGNUvZGwWWM4SwxKp2PUQ8/view">文件</a></p>
+</li>
+<li>
+<p>运行<code>data/train2yolo.py</code>以及<code>data/val2yolo.py</code>需要提供数据存放位置</p>
+<ul>
+<li><code>python3 train2yolo.py /path/to/original/widerface/train [/path/to/save/widerface/train]</code> 当前运行命令：<code>python3 train2yolo.py /home/zhaopeng/yolo/yolov5-face/data/date_set/train/ /home/zhaopeng/yolo/yolov5-face/data/train_label</code></li>
+<li><code>data/val2yolo.py</code>运行稍有不同，源目录不用进入<code>val</code>文件夹<code>python val2yolo.py /home/zhaopeng/yolo/yolov5-face/data/date_set/ /home/zhaopeng/yolo/yolov5-face/data/val_label/</code></li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>运行<code>data/val2yolo_for_test.py</code>文件</p>
+<ul>
+<li>修改文件中<code>root</code>目录</li>
+<li>修改文件中<code> wider2face</code>函数</li>
+</ul>
+<pre><code class="language-python"> 39             if '#' in line:
+ 40                 ### zhaopeng add
+ 41                 s1 = list(line)
+ 42                 s1[0] = &quot;&quot;
+ 43                 s1[1] = &quot;&quot;
+ 44                 line = ''.join(s1)
+ 45                 path = '{}/{}/images/{}'.format(root, phase, line)
+ 46                 ### zhaopeng add
+ 47                 #path = '{}/{}/images/{}'.format(root, phase, os.path.basename(line))
+ 48                 #print(path)
+</code></pre>
+</li>
+<li>
+<p>train过程：</p>
+<ul>
+<li>
+<p>手动下载<code>train</code>所需的预训练<a href="https://github.com/ultralytics/yolov5/releases">权重文件</a></p>
+</li>
+<li>
+<p>修改<code>data/widerface.ymal</code>文件中数据的路径</p>
+</li>
+<li>
+<p>运行<code>train.py</code>文件</p>
+</li>
+<li>
+<p>GPU运行出现问题，由于torchvision::nms问题，原因是torchvision版本问题，<a href="https://blog.csdn.net/weixin_41793473/article/details/118574493">解决方案</a></p>
+</li>
+</ul>
+<p><code>RuntimeError: Could not run 'torchvision::nms' with arguments from the 'CUDA' backend. 'UDA, AutogradXLA, Tracer, Autocast, Batched, VmapMode].</code></p>
+<ul>
+<li>计算效率：
+<ul>
+<li><code>Model Summary:</code> 292 layers, 7074640 parameters, 7074640 gradients, 15.3 GFLOPS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>运行<code>test_widerface.py</code></p>
+<ul>
+<li>修改test参数<code>weights</code>为<code>weights/yolov5s.pt</code></li>
+<li>编写脚本生成<code>wider_val.txt</code>文件，【最后还是失败】，从网上<a href="https://drive.google.com/file/d/11UGV3nbVv1x9IC--_tK3Uxf7hA6rlbsS/view">google colude</a>下载了winderface数据可以运行(已保存至阿里网盘)</li>
+<li>碰见以下bug<code>/pytorch/aten/src/ATen/native/cuda/IndexKernel.cu:93: operator(): block: [2,0,0], thread: [120,0,0] Assertion </code>index &gt;= -sizes[i] &amp;&amp; index &lt; sizes[i] &amp;&amp; &ldquo;index out of bounds&rdquo;<code> failed.</code><a href="https://github.com/pytorch/pytorch/issues/55027">网上</a>指出是torch版本问题，切换到<a href="https://pytorch.org/get-started/previous-versions/">1.7.1版本</a>torch，最后分析应该是<code>wider_val.txt</code>文件格式问题导致</li>
+</ul>
+</li>
+<li>
+<p>使用python进行推理过程（<code>yolov5-face/torch2trt</code>/）</p>
+<ul>
+<li>
+<p>使用export.py生成onnx文件<code>runs/train/exp2/weights/last.onnx</code></p>
+</li>
+<li>
+<p>使用<code>onnx2trt</code>生成<code>fp16</code>的<code>.trt</code>文件:<code>onnx2trt last.onnx -d 16 -o last.trt</code></p>
+</li>
+<li>
+<p>运行推理过程<code>python main.py --trt_path=&quot;/home/zhaopeng/yolo/yolov5-face/runs/train/exp2/weights/last.trt&quot;</code></p>
+<ul>
+<li>
+<p>遇到问题：<code>ModuleNotFoundError: No module named 'utils.general'</code></p>
+<ul>
+<li>不需要安装utils，指的是本地的utils，<code>pip uninstall utils</code>即可，<a href="https://stackoverflow.com/questions/59168803/modulenotfounderror-no-module-named-utils-datasets">相关链接</a></li>
+</ul>
+</li>
+<li>
+<p>需要修改<code>torch2trt/trt_model.py</code>中<code>62</code>行替换为<code>64</code>行，使其只处理单张图片</p>
+</li>
+</ul>
+<pre><code class="language-python"> 62             #size = trt.volume(engine.get_binding_shape(binding)) * engine.max_batch_size
+ 63             # zhaopeng add
+ 64             size = trt.volume(engine.get_binding_shape(binding))
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-问题汇总">1.2 问题汇总</h3>
+<ul>
+<li>出现<code>AttributeError: Can't get attribute 'SPPF' on &lt;module 'models.common' from '/Users/pengzhao/py_project/pytorch/yolov5-face/models/common.py'&gt;</code>的解决方案</li>
+</ul>
+<p>将以下<a href="https://blog.csdn.net/Steven_Cary/article/details/120886696">代码</a>拷贝到<code>/Users/pengzhao/py_project/pytorch/yolov5-face/models/common.py</code>中</p>
+<pre><code class="language-python">import warnings
+
+class SPPF(nn.Module):
+    # Spatial Pyramid Pooling - Fast (SPPF) layer for YOLOv5 by Glenn Jocher
+    def __init__(self, c1, c2, k=5):  # equivalent to SPP(k=(5, 9, 13))
+        super().__init__()
+        c_ = c1 // 2  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c_ * 4, c2, 1, 1)
+        self.m = nn.MaxPool2d(kernel_size=k, stride=1, padding=k // 2)
+
+    def forward(self, x):
+        x = self.cv1(x)
+        with warnings.catch_warnings():
+            warnings.simplefilter('ignore')  # suppress torch 1.9.0 max_pool2d() warning
+            y1 = self.m(x)
+            y2 = self.m(y1)
+            return self.cv2(torch.cat([x, y1, y2, self.m(y2)], 1))
+</code></pre>
+<ul>
+<li><code>yolov5-face/test.py</code>
+<ul>
+<li>出现<code>ImportError: /lib64/libstdc++.so.6: version  CXXABI_1.3.9 not found</code> 通过<a href="https://stackoverflow.com/questions/48831881/centos-7-libstdc-so-6-version-cxxabi-1-3-9-not-found">在终端运行</a><code>export LD_PRELOAD=$CONDA_PREFIX/lib/libstdc++.so</code>解决</li>
+<li></li>
+</ul>
+</li>
+<li>调<code>yolov5-face/test.py</code>出现以下问题<code>IndexError: index 85 is out of bounds for dimension 0 with size 85</code></li>
+<li>查看文件个数<code>ls -lR | grep &quot;txt&quot;| wc -l</code></li>
+</ul>
+<h2 id="2-yolov5-c推理过程">2 yolov5 c++推理过程</h2>
+<ul>
+<li>吴恩达yotube课程<a href="https://www.youtube.com/watch?v=rRB9iymNy1w&amp;list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF&amp;index=24">链接</a></li>
+<li>精度以及召回率的<a href="https://zhuanlan.zhihu.com/p/88896868">定义</a></li>
+<li>IOU以及衍生算法的<a href="https://mp.weixin.qq.com/s/OvY2tTGX3fmZ6O7kD8m4hw">定义</a></li>
+</ul>
+<h3 id="21-前处理">2.1 前处理</h3>
+<p>主要是对不同大小的图片做仿射变换（缩放+平移）</p>
+<p>先求出s2d矩阵:</p>
+<div>
+$$
+s2d=\left[\begin{array}{lll}
+a_{11} & a_{12} & b_{1} \\
+a_{21} & a_{22} & b_{2}
+\end{array}\right]
+$$
+</div>
+其中矩阵每一行代表由src转换为dst的坐标转换方式：例如$x_{dst}=a_{11}*x_{src} + a_{12}*y_{src} + b_1$，可以很容易根据src图片以及dst图片的大小确定出$a_{11}$,$a_{12}$以及$b_1$的大小。可得到dst转换为src的矩阵为：
+<div>
+$$
+D=1.0 / (a_{11} * a_{22} - a_{12} * a_{21})\\
+A11=a_{22}/D, A22 = a_{11}/D, A12=-a_{12}*D, A21 = -a_{21} * D\\
+d2s = \left[\begin{array}{lll}
+A11 & A12 & -A11 * b_1 - A12 * b_2 \\
+A21 & A22 & -A21 * b_1 - A22 * b_2
+\end{array}\right]
+$$
+</div>
+得到d2s的变换矩阵后可以通过双线性插值得到des图片：
+<p><img src="https://raw.githubusercontent.com/pzhao-eng/figurebed/main/bilinear_interp.jpg" width = "300" height = "300" alt="双线性差值示意图" align=center /></p>
+<pre><code class="language-cpp">__global__ void warpaffine_kernel( 
+    uint8_t* src, int src_line_size, int src_width, 
+    int src_height, float* dst, int dst_width, 
+    int dst_height, uint8_t const_value_st,
+    float* d2s, int edge) {
+    int position = blockDim.x * blockIdx.x + threadIdx.x;
+    if (position &gt;= edge) return;
+
+    float m_x1 = d2s[0];
+    float m_y1 = d2s[1];
+    float m_z1 = d2s[2];
+    float m_x2 = d2s[3];
+    float m_y2 = d2s[4];
+    float m_z2 = d2s[5];
+
+    int dx = position % dst_width;
+    int dy = position / dst_width;
+    float src_x = m_x1 * dx + m_y1 * dy + m_z1 + 0.5f;
+    float src_y = m_x2 * dx + m_y2 * dy + m_z2 + 0.5f;
+    float c0, c1, c2;
+
+    if (src_x &lt;= -1 || src_x &gt;= src_width || src_y &lt;= -1 || src_y &gt;= src_height) {
+        // out of range
+        c0 = const_value_st;
+        c1 = const_value_st;
+        c2 = const_value_st;
+    } else {
+        int y_low = floorf(src_y);
+        int x_low = floorf(src_x);
+        int y_high = y_low + 1;
+        int x_high = x_low + 1;
+
+        uint8_t const_value[] = {const_value_st, const_value_st, const_value_st};
+        float ly = src_y - y_low;
+        float lx = src_x - x_low;
+        float hy = 1 - ly;
+        float hx = 1 - lx;
+        float w1 = hy * hx, w2 = hy * lx, w3 = ly * hx, w4 = ly * lx;
+        uint8_t* v1 = const_value;
+        uint8_t* v2 = const_value;
+        uint8_t* v3 = const_value;
+        uint8_t* v4 = const_value;
+
+        if (y_low &gt;= 0) {
+            if (x_low &gt;= 0)
+                v1 = src + y_low * src_line_size + x_low * 3;
+
+            if (x_high &lt; src_width)
+                v2 = src + y_low * src_line_size + x_high * 3;
+        }
+
+        if (y_high &lt; src_height) {
+            if (x_low &gt;= 0)
+                v3 = src + y_high * src_line_size + x_low * 3;
+
+            if (x_high &lt; src_width)
+                v4 = src + y_high * src_line_size + x_high * 3;
+        }
+
+        c0 = w1 * v1[0] + w2 * v2[0] + w3 * v3[0] + w4 * v4[0];
+        c1 = w1 * v1[1] + w2 * v2[1] + w3 * v3[1] + w4 * v4[1];
+        c2 = w1 * v1[2] + w2 * v2[2] + w3 * v3[2] + w4 * v4[2];
+    }
+
+    //normalization
+    c0 = c0 / 255.0f;
+    c1 = c1 / 255.0f;
+    c2 = c2 / 255.0f;
+
+    //rgbrgbrgb to rrrgggbbb
+    int area = dst_width * dst_height;
+    float* pdst_c0 = dst + dy * dst_width + dx;
+    float* pdst_c1 = pdst_c0 + area;
+    float* pdst_c2 = pdst_c1 + area;
+    *pdst_c0 = c0;
+    *pdst_c1 = c1;
+    *pdst_c2 = c2;
+}
+</code></pre>
+<p>需要注意图片的存储形式图片存储方式为{bgr，bgr&hellip;}，通过前处理可以将图片处理为输入大小。</p>
+<h3 id="22后处理">2.2后处理</h3>
+<ul>
+<li>
+<p>输出数据格式：[1, 25200, 16]</p>
+<ul>
+<li>25200的由来：yolov5会输出3组特征，3组特征的大小分别为640/8，640/16  以及640/32，每组特征包含3个anchors；因此总共包含80 * 80 * 3 + 40 * 40 * 3 + 20 * 20 * 3 = 25200组特征。</li>
+<li>其中16为[center_x, center_y, width, height, conf, 后边的十个点代表五个坐标，分别代表眼睛（2），鼻子（1）以及嘴巴（2），landmarks]；</li>
+</ul>
+</li>
+<li>
+<p>非最大抑制（NMS）</p>
+<ul>
+<li>首先根据conf的阈值删掉一部分特征</li>
+<li>将剩余特征通过NMS留下</li>
+</ul>
+</li>
+<li>
+<p>一些概念</p>
+<ul>
+<li>
+<p>anchors box<a href="https://vivek-yadav.medium.com/part-1-generating-anchor-boxes-for-yolo-like-network-for-vehicle-detection-using-kitti-dataset-b2fe033e5807">定义</a>，<a href="https://towardsdatascience.com/anchor-boxes-the-key-to-quality-object-detection-ddf9d612d4f9">定义2</a></p>
+</li>
+<li>
+<p>置信区间以及置信水平<a href="https://www.zhihu.com/question/24801731">链接</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/jiafeier_555/article/details/111287054">召回率</a></p>
+</li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+
+      
+        <div class="my-4">
+    
+    <a href="http://pzhao-eng.github.io/tags/yolo.html" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#yolo</a>
+    
+    <a href="http://pzhao-eng.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#卷积神经网络</a>
+    
+</div>
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="http://pzhao-eng.github.io/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html" class="block">TensorRT的安装</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="http://pzhao-eng.github.io/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html" class="block">使用tinyproxy代理安装软件</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1--yolov5-facehttpsgithubcomgassolidyolov5-face-python-infer过程实现">1  <a href="https://github.com/gasSolid/yolov5-face">yolov5-face</a> python infer过程实现</a>
+      <ul>
+        <li><a href="#10-yolov5介绍">1.0 yolov5介绍</a></li>
+        <li><a href="#11-运行过程httpswwwcxymmnetarticlem0_58348465121423964">1.1 <a href="https://www.cxymm.net/article/m0_58348465/121423964">运行过程</a></a></li>
+        <li><a href="#12-问题汇总">1.2 问题汇总</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-yolov5-c推理过程">2 yolov5 c++推理过程</a>
+      <ul>
+        <li><a href="#21-前处理">2.1 前处理</a></li>
+        <li><a href="#22后处理">2.2后处理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="http://pzhao-eng.github.io/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html" class="no-underline">TensorRT中plugin实战(TO DO)</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.zhaopeng.com/">Zhao Peng</a> 
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

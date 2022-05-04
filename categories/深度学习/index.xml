@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>深度学习 on Zhao Peng&#39;s Blogs</title>
-    <link>/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+    <link>http://pzhao-eng.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.html</link>
     <description>Recent content in 深度学习 on Zhao Peng&#39;s Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.zhaopeng.com/&#34;&gt;Zhao Peng&lt;/a&gt; 
 </copyright>
-    <lastBuildDate>Fri, 25 Mar 2022 08:47:11 +0100</lastBuildDate><atom:link href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Mar 2022 08:47:11 +0100</lastBuildDate><atom:link href="http://pzhao-eng.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TensorRT中plugin实战(TO DO)</title>
-      <link>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98/</link>
+      <link>http://pzhao-eng.github.io/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98/</guid>
+      <guid>http://pzhao-eng.github.io/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html</guid>
       <description>本文主要参考了Chinthaka Gamanayake的工作，将实现在tensorRT中实现adderNet的plugin，并用于adderNet的推理</description>
     </item>
     
     <item>
       <title>yolov5-face 运行log</title>
-      <link>/posts/yolov5_face_run_log/</link>
+      <link>http://pzhao-eng.github.io/posts/yolov5_face_run_log.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>/posts/yolov5_face_run_log/</guid>
+      <guid>http://pzhao-eng.github.io/posts/yolov5_face_run_log.html</guid>
       <description>1 yolov5-face python infer过程实现 1.0 yolov5介绍 快速介绍 从yolov1-v5 masked face yolov5 吴恩达deeplearning.ai 大白资料 1.1 运行过程 下载WIDERFac</description>
     </item>
     
