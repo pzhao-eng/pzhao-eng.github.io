@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Zhao Peng&#39;s Blogs</title>
+    <link>http://pzhao-eng.github.io/categories/</link>
+    <description>Recent content in Categories on Zhao Peng&#39;s Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.zhaopeng.com/&#34;&gt;Zhao Peng&lt;/a&gt; 
+</copyright>
+    <lastBuildDate>Wed, 20 Apr 2022 08:47:11 +0100</lastBuildDate><atom:link href="http://pzhao-eng.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模型加速</title>
+      <link>http://pzhao-eng.github.io/categories/%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Wed, 20 Apr 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/categories/%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>http://pzhao-eng.github.io/categories/git/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>实用技巧</title>
+      <link>http://pzhao-eng.github.io/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>深度学习</title>
+      <link>http://pzhao-eng.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

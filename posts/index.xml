@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Zhao Peng&#39;s Blogs</title>
+    <link>http://pzhao-eng.github.io/posts/</link>
+    <description>Recent content in Posts on Zhao Peng&#39;s Blogs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.zhaopeng.com/&#34;&gt;Zhao Peng&lt;/a&gt; 
+</copyright>
+    <lastBuildDate>Wed, 20 Apr 2022 08:47:11 +0100</lastBuildDate><atom:link href="http://pzhao-eng.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用onnx导出模型文献通过TensorRT加速推理过程</title>
+      <link>http://pzhao-eng.github.io/posts/onnx_to_tensorrt/</link>
+      <pubDate>Wed, 20 Apr 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/posts/onnx_to_tensorrt/</guid>
+      <description>本节内容参考了TensorRT的cookbook内容以及TensorRT安装包内的sample。接下来的内容将首先使用pytorch训练并导出onnx</description>
+    </item>
+    
+    <item>
+      <title>Git实用技巧</title>
+      <link>http://pzhao-eng.github.io/posts/git_learn/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/posts/git_learn/</guid>
+      <description>1. 安装Git并为这台机器上所有Git仓库配置 git config --global user.name &amp;quot;Your Name&amp;quot; git config --global user.email &amp;quot;email@example.com&amp;quot; 2. 创建git库 git init 将文件放到git仓库中 git add readme.md git commit -m &amp;quot;write a read me file&amp;quot; git log 查看提交记录 git log --pretty=oneline</description>
+    </item>
+    
+    <item>
+      <title>markdown使用技巧</title>
+      <link>http://pzhao-eng.github.io/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>1. 图床：PicGo+Github PicGo安装 Mac:brew install picgo --cask 教程</description>
+    </item>
+    
+    <item>
+      <title>TensorRT中plugin实战(TO DO)</title>
+      <link>http://pzhao-eng.github.io/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98/</guid>
+      <description>本文主要参考了Chinthaka Gamanayake的工作，将实现在tensorRT中实现adderNet的plugin，并用于adderNet的推理</description>
+    </item>
+    
+    <item>
+      <title>TensorRT的安装</title>
+      <link>http://pzhao-eng.github.io/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85/</guid>
+      <description>1 protobuf安装,安装教程2 CMake(6):多个Protobuf版本时让find_package正确选择 需要安装protobuf3.12.0以</description>
+    </item>
+    
+    <item>
+      <title>yolov5-face 运行log</title>
+      <link>http://pzhao-eng.github.io/posts/yolov5_face_run_log/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/posts/yolov5_face_run_log/</guid>
+      <description>1 yolov5-face python infer过程实现 1.0 yolov5介绍 快速介绍 从yolov1-v5 masked face yolov5 吴恩达deeplearning.ai 大白资料 1.1 运行过程 下载WIDERFac</description>
+    </item>
+    
+    <item>
+      <title>使用tinyproxy代理安装软件</title>
+      <link>http://pzhao-eng.github.io/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
+      
+      <guid>http://pzhao-eng.github.io/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</guid>
+      <description>使用无法联网的超算或者集群时候，直接从源代码安装较为繁琐。通过可以联网的机器作为代理，便可以在集群上联网安装软件。目前教程暂时不涉及设置代理需要roo</description>
+    </item>
+    
+  </channel>
+</rss>

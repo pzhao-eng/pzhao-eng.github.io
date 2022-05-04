@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>使用onnx导出模型文献通过TensorRT加速推理过程 | Zhao Peng&#39;s Blogs</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="http://pzhao-eng.github.io/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css" integrity="sha384-nOxjUON&#43;U0sDOPqaCFvwaFXeOw8tz4V&#43;eS5el7B&#43;qQXU1VE9tVTLwmqcPaYiuukt">
+<script defer src="http://pzhao-eng.github.io/js/eureka.min.eb6659c67f29038a032788e9ed8a7f2f2d069395707a85a6b347773a01e3d475cb17c307fa0cd8733e1bbdc3f34e0029.js" integrity="sha384-62ZZxn8pA4oDJ4jp7Yp/Ly0Gk5VweoWms0d3OgHj1HXLF8MH&#43;gzYcz4bvcPzTgAp"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/xcode.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/c.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/cpp.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/cmake.min.js"
+     crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/python.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="http://pzhao-eng.github.io/js/fontawesome.min.069e075b818028f70483364ef15e148e8662aa8c0696dcd8ab2615116e046f53081d39a0bc58c723f1c661786b459819.js" integrity="sha384-Bp4HW4GAKPcEgzZO8V4UjoZiqowGltzYqyYVEW4Eb1MIHTmgvFjHI/HGYXhrRZgZ"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],displaymode:"true",
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="http://pzhao-eng.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://pzhao-eng.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="使用TensorRT加速onnx导出模型">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"http://pzhao-eng.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"使用onnx导出模型文献通过TensorRT加速推理过程",
+      "item":"http://pzhao-eng.github.io/posts/onnx_to_tensorrt/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://pzhao-eng.github.io/posts/onnx_to_tensorrt/"
+    },
+    "headline": "使用onnx导出模型文献通过TensorRT加速推理过程 | Zhao Peng\u0027s Blogs","datePublished": "2022-04-20T08:47:11+01:00",
+    "dateModified": "2022-04-20T08:47:11+01:00",
+    "wordCount":  1292 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Zhao Peng",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://pzhao-eng.github.io/images/icon.png"
+        }
+        },
+    "description": "使用TensorRT加速onnx导出模型"
+}
+</script><meta property="og:title" content="使用onnx导出模型文献通过TensorRT加速推理过程 | Zhao Peng&#39;s Blogs" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="http://pzhao-eng.github.io/images/icon.png">
+
+
+<meta property="og:url" content="http://pzhao-eng.github.io/posts/onnx_to_tensorrt/" />
+
+
+
+<meta property="og:description" content="使用TensorRT加速onnx导出模型" />
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Zhao Peng&#39;s Blogs" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-04-20T08:47:11&#43;01:00" />
+
+
+<meta property="article:modified_time" content="2022-04-20T08:47:11&#43;01:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="TensorRT" />
+
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Zhao Peng&#39;s Blogs</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/about/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于我</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">归档</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">标签</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">使用onnx导出模型文献通过TensorRT加速推理过程</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-04-20</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+    <div class="me-6 my-2">
+      <i class="fas fa-folder me-1"></i>
+      
+        <a href="http://pzhao-eng.github.io/categories/%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/" class="hover:text-eureka"
+          >模型加速</a
+        >
+      
+    </div>
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>本节内容参考了TensorRT的<a href="https://github.com/NVIDIA/trt-samples-for-hackathon-cn/tree/master/cookbook/04-Parser/pyTorch-ONNX-TensorRT">cookbook</a>内容以及TensorRT安装包内的sample。接下来的内容将首先使用pytorch训练并导出onnx文件，然后实现TensorRT加速深度神经网络推理过程的C++版本实现。</p>
+<h2 id="1-pytorch推理过程">1. pytorch推理过程</h2>
+<pre><code class="language-python">import os
+import sys
+import cv2
+import numpy as np
+from glob import glob
+from datetime import datetime as dt
+import torch as t
+#import torchvision as tv               # 使用 pyTorch 默认的 MNIST 数据（含下载）
+from torch.utils import data
+import torch.nn.functional as F
+from torch.autograd import Variable
+from cuda import cudart
+import tensorrt as trt
+import calibrator
+
+dataPath = os.path.dirname(os.path.realpath(__file__)) + &quot;/../../00-MNISTData/&quot;
+sys.path.append(dataPath)
+import loadMnistData
+
+nTrainBatchSize = 128
+ptFile = &quot;./model.pt&quot;
+onnxFile = &quot;./model.onnx&quot;
+trtFile = &quot;./model.plan&quot;
+calibrationDataPath = dataPath + &quot;test/&quot;
+cacheFile = &quot;./int8.cache&quot;
+calibrationCount = 1
+inputImage = dataPath + &quot;8.png&quot;
+imageHeight = 28
+imageWidth = 28
+
+os.system(&quot;rm -rf ./*.plan ./*.cache&quot;)
+#os.system(&quot;rm -rf ./*.pt ./*.onnx ./*.plan ./*.cache&quot;)
+np.set_printoptions(precision=4, linewidth=200, suppress=True)
+cudart.cudaDeviceSynchronize()
+# pyTorch 中创建网络并保存为 .pt 文件 ----------------------------------------------
+class Net(t.nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = t.nn.Conv2d(1, 32, (5, 5), padding=(2, 2), bias=True)
+        self.conv2 = t.nn.Conv2d(32, 64, (5, 5), padding=(2, 2), bias=True)
+        self.fc1 = t.nn.Linear(64 * 7 * 7, 1024, bias=True)
+        self.fc2 = t.nn.Linear(1024, 10, bias=True)
+
+    def forward(self, x):
+        x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
+        x = F.max_pool2d(F.relu(self.conv2(x)), (2, 2))
+        x = x.reshape(-1, 7 * 7 * 64)
+        x = F.relu(self.fc1(x))
+        y = self.fc2(x)
+        z = F.softmax(y, dim=1)
+        z = t.argmax(z, dim=1)
+        return y, z
+
+class MyData(data.Dataset):
+
+    def __init__(self, path=dataPath, isTrain=True, nTrain=0, nTest=0):
+        if isTrain:
+            if len(glob(dataPath + &quot;train/*.jpg&quot;)) == 0:
+                mnist = loadMnistData.MnistData(path, isOneHot=False)
+                mnist.saveImage([60000, nTrain][int(nTrain &gt; 0)], path + &quot;train/&quot;, True)  # 60000 images in total
+            self.data = glob(path + &quot;train/*.jpg&quot;)
+        else:
+            if len(glob(dataPath + &quot;test/*.jpg&quot;)) == 0:
+                mnist = loadMnistData.MnistData(path, isOneHot=False)
+                mnist.saveImage([10000, nTest][int(nTest &gt; 0)], path + &quot;test/&quot;, False)  # 10000 images in total
+            self.data = glob(path + &quot;test/*.jpg&quot;)
+
+    def __getitem__(self, index):
+        imageName = self.data[index]
+        data = cv2.imread(imageName, cv2.IMREAD_GRAYSCALE)
+        label = np.zeros(10, dtype=np.float32)
+        index = int(imageName[-7])
+        label[index] = 1
+        return t.from_numpy(data.reshape(1, imageHeight, imageWidth).astype(np.float32)), label
+
+    def __len__(self):
+        return len(self.data)
+
+net = Net().cuda()
+ceLoss = t.nn.CrossEntropyLoss()
+opt = t.optim.Adam(net.parameters(), lr=0.001)
+#trainDataset    = tv.datasets.MNIST(root=&quot;.&quot;,train=True,transform=tv.transforms.ToTensor(),download=True)
+#testDataset     = tv.datasets.MNIST(root=&quot;.&quot;,train=False,transform=tv.transforms.ToTensor(),download=True)
+trainDataset = MyData(isTrain=True, nTrain=600)
+testDataset = MyData(isTrain=False, nTest=100)
+trainLoader = t.utils.data.DataLoader(dataset=trainDataset, batch_size=nTrainBatchSize, shuffle=True)
+testLoader = t.utils.data.DataLoader(dataset=testDataset, batch_size=nTrainBatchSize, shuffle=True)
+
+for epoch in range(40):
+    for i, (xTrain, yTrain) in enumerate(trainLoader):
+        xTrain = Variable(xTrain).cuda()
+        #yTrain = yTrain.type(t.LongTensor)
+        yTrain = Variable(yTrain).cuda()
+        opt.zero_grad()
+        y_, z = net(xTrain)
+        #print(t.max(yTrain, 1)[1]) 输出对应的class index
+        loss = ceLoss(y_, t.max(yTrain, 1)[1])
+        loss.backward()
+        opt.step()
+    if not (epoch + 1) % 10:
+        print(&quot;%s, epoch %d, loss = %f&quot; % (dt.now(), epoch + 1, loss.data))
+
+acc = 0
+net.eval()
+for xTest, yTest in testLoader:
+    xTest = Variable(xTest).cuda()
+    yTest = Variable(yTest).cuda()
+    y_, z = net(xTest)
+    acc += t.sum(z == t.matmul(yTest, t.Tensor([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).to('cuda:0'))).cpu().numpy()
+print(&quot;test acc = %f&quot; % (acc / len(testLoader) / nTrainBatchSize))
+
+t.save(net, ptFile)
+print(&quot;Succeeded building model in pyTorch!&quot;)
+
+# 将 .pt 文件转换为 .onnx 文件 ----------------------------------------------------
+t.onnx.export(net, t.randn(1, 1, imageHeight, imageWidth, device=&quot;cuda&quot;), onnxFile, example_outputs=[t.randn(1, 10, device=&quot;cuda&quot;), t.randn(1, device=&quot;cuda&quot;)], input_names=['x'], output_names=['y', 'z'], do_constant_folding=True, verbose=True, keep_initializers_as_inputs=True, opset_version=12, dynamic_axes={&quot;x&quot;: {0: &quot;nBatchSize&quot;}, &quot;z&quot;: {0: &quot;nBatchSize&quot;}})
+print(&quot;Succeeded converting model into onnx!&quot;)
+</code></pre>
+<h2 id="2-tensorrt-进行推理过程">2. TensorRT 进行推理过程</h2>
+<p>使用explict batch + dynamic shape以及数据拷贝与推理过程异步进行</p>
+<pre><code class="language-c++">/*************************************************************************
+      &gt; File Name: main.cpp
+      &gt; Author: zhaopeng
+      &gt; Mail: zhaopeng_chem@163.com
+      &gt; Created Time: Wed 13 Apr 2022 08:20:21 PM CST
+ ************************************************************************/
+
+#include &lt;NvInfer.h&gt;
+#include &lt;NvOnnxParser.h&gt;
+#include &lt;cuda_runtime_api.h&gt;
+#include &lt;cuda_runtime.h&gt;
+#include &lt;fstream&gt;
+#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;unistd.h&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+#include &lt;numeric&gt;
+#include &lt;cassert&gt;
+#include &lt;stdexcept&gt;
+#include &quot;print_array.h&quot;
+
+using namespace nvinfer1;
+using namespace std;
+
+#define ck(call) check(call, __LINE__, __FILE__)
+const int inputSize_H = 28;
+const int inputSize_W = 28;
+
+const std::string onnxFile {&quot;./model.onnx&quot;};
+const std::string trtFile {&quot;./model.plan&quot;};
+
+inline bool check(cudaError_t e, int iLine, const char *szFile)
+{
+    if (e != cudaSuccess)
+    {
+        std::cout &lt;&lt; &quot;CUDA runtime API error &quot; &lt;&lt; cudaGetErrorName(e) &lt;&lt; &quot; at line &quot; &lt;&lt; iLine &lt;&lt; &quot; in file &quot; &lt;&lt; szFile &lt;&lt; std::endl;
+        return false;
+    }
+    return true;
+}
+
+class Logger : public ILogger
+{
+public:
+    Severity reportableSeverity;
+
+    Logger(Severity severity = Severity::kINFO):
+        reportableSeverity(severity) {}
+
+    void log(Severity severity, const char *msg) override
+    {
+        if (severity &gt; reportableSeverity)
+        {
+            return;
+        }
+        switch (severity)
+        {
+        case Severity::kINTERNAL_ERROR:
+            std::cerr &lt;&lt; &quot;INTERNAL_ERROR: &quot;;
+            break;
+        case Severity::kERROR:
+            std::cerr &lt;&lt; &quot;ERROR: &quot;;
+            break;
+        case Severity::kWARNING:
+            std::cerr &lt;&lt; &quot;WARNING: &quot;;
+            break;
+        case Severity::kINFO:
+            std::cerr &lt;&lt; &quot;INFO: &quot;;
+            break;
+        default:
+            std::cerr &lt;&lt; &quot;UNKNOWN: &quot;;
+            break;
+        }
+        std::cerr &lt;&lt; msg &lt;&lt; std::endl;
+    }
+};
+
+static Logger gLogger(ILogger::Severity::kERROR);
+
+void readFiles(const vector&lt;string&gt; &amp;fileNames, uint8_t *input_data_host)
+{
+    int offset = 0; 
+    for (const string&amp; fileName : fileNames)
+    {
+        std::ifstream infile(fileName, std::ifstream::binary);
+        assert(infile.is_open() &amp;&amp; &quot;Attempting to read from a file that is not open.&quot;);
+
+        std::string magic;
+        int h, w, max;
+        infile &gt;&gt; magic &gt;&gt; h &gt;&gt; w &gt;&gt; max;
+
+        infile.seekg(1, infile.cur);
+        size_t vol = 1 * 1 * h * w;
+        uint8_t *fileData = &amp;(input_data_host[offset]);
+        infile.read(reinterpret_cast&lt;char*&gt;(fileData), vol);
+        offset += (h * w);
+        //cout &lt;&lt; &quot;Input:\n&quot;;
+        //for (size_t i = 0; i &lt; vol; i++)
+        //{
+        //    cout &lt;&lt; (&quot; .:-=+*#%@&quot;[fileData[i] / 26]) &lt;&lt; (((i + 1) % w) ? &quot;&quot; : &quot;\n&quot;);
+        //}
+        //cout &lt;&lt; std::endl; 
+    }
+}
+
+unsigned int getElementSize(nvinfer1::DataType t)
+{
+    switch (t)
+    {
+    case nvinfer1::DataType::kINT32: return 4;
+    case nvinfer1::DataType::kFLOAT: return 4;
+    case nvinfer1::DataType::kHALF: return 2;
+    case nvinfer1::DataType::kBOOL:
+    case nvinfer1::DataType::kINT8: return 1;
+    }
+    throw std::runtime_error(&quot;Invalid DataType.&quot;);
+    return 0;
+}
+
+int64_t volume(const nvinfer1::Dims&amp; d)
+{
+    return std::accumulate(d.d, d.d + d.nbDims, 1, std::multiplies&lt;int64_t&gt;());
+}
+
+
+int main()
+{
+    IBuilder *builder = createInferBuilder(gLogger);
+    const uint32_t explicitBatch = 1U &lt;&lt; static_cast&lt;uint32_t&gt;(NetworkDefinitionCreationFlag::kEXPLICIT_BATCH);
+    INetworkDefinition *network = builder-&gt;createNetworkV2(explicitBatch);
+    auto config = builder-&gt;createBuilderConfig();
+    config-&gt;setMaxWorkspaceSize(5&lt;&lt;30);
+    config-&gt;setFlag(BuilderFlag::kFP16);
+
+    auto parser = nvonnxparser::createParser(*network, gLogger);
+    auto parsed = parser-&gt;parseFromFile(onnxFile.c_str(), static_cast&lt;int&gt;(gLogger.reportableSeverity));
+    if (!parsed){
+        cout&lt;&lt;&quot;parser onnx file Error&quot;&lt;&lt;endl;
+        return 1;
+    }
+
+    auto inputTensor = network-&gt;getInput(0);
+    auto profile = builder-&gt;createOptimizationProfile();
+    profile-&gt;setDimensions(inputTensor-&gt;getName(), OptProfileSelector::kMIN, Dims4{1, 1, 28, 28});
+    profile-&gt;setDimensions(inputTensor-&gt;getName(), OptProfileSelector::kOPT, Dims4{4, 1, 28, 28});
+    profile-&gt;setDimensions(inputTensor-&gt;getName(), OptProfileSelector::kMAX, Dims4{16, 1, 28, 28});
+    config-&gt;addOptimizationProfile(profile);
+    
+    network-&gt;unmarkOutput(*network-&gt;getOutput(0)); //?
+    auto engine = builder-&gt;buildEngineWithConfig(*network, *config);
+    network-&gt;destroy();
+    builder-&gt;destroy();
+
+    vector&lt;string&gt; fileNames;
+    fileNames.push_back(&quot;../MNIST/0.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/1.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/2.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/3.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/4.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/5.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/6.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/7.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/8.pgm&quot;);
+    fileNames.push_back(&quot;../MNIST/9.pgm&quot;);
+    int batchSize = fileNames.size();
+    uint8_t *input_data = (uint8_t *)malloc(batchSize * inputSize_H * inputSize_W);
+    readFiles(fileNames, input_data);
+
+    auto context = engine-&gt;createExecutionContext();
+    Dims4 inputDims2{batchSize, 1, inputSize_H, inputSize_W};
+    //cout&lt;&lt;engine-&gt;getBindingDimensions(0).nbDims&lt;&lt;endl;
+    //cout&lt;&lt;engine-&gt;getBindingDimensions(1).nbDims&lt;&lt;endl;
+    context-&gt;setBindingDimensions(0, inputDims2);
+
+    // alloc device and host memory
+    const auto dataTypeInput = engine-&gt;getBindingDataType(0);
+    const auto dataTypeOutput = engine-&gt;getBindingDataType(1);
+    Dims inputDims = context-&gt;getBindingDimensions(0);
+    Dims outputDims = context-&gt;getBindingDimensions(1);
+
+    vector&lt;void *&gt; buffer{nullptr, nullptr};
+    int input_size = volume(inputDims); 
+    int output_size = volume(outputDims); 
+    cout&lt;&lt;&quot;input_size = &quot;&lt;&lt;inputDims.nbDims&lt;&lt;&quot; &quot;&lt;&lt;volume(inputDims)&lt;&lt;endl;
+    cout&lt;&lt;&quot;output_size = &quot;&lt;&lt;outputDims.nbDims&lt;&lt;&quot; &quot;&lt;&lt;volume(outputDims)&lt;&lt;endl;
+    
+    ck(cudaMalloc(&amp;buffer[0], input_size * getElementSize(dataTypeInput)));
+    ck(cudaMalloc(&amp;buffer[1], output_size * getElementSize(dataTypeOutput)));
+    float *input_data_host = nullptr;
+    int *out_data_host = nullptr;
+    ck(cudaMallocHost((void **)&amp;input_data_host, input_size * getElementSize(dataTypeInput)));
+    ck(cudaMallocHost((void **)&amp;out_data_host, output_size * getElementSize(dataTypeOutput)));
+    for (int i = 0; i &lt; batchSize * inputSize_H * inputSize_W; i++){
+        input_data_host[i] = static_cast&lt;float&gt;(input_data[i]);
+    }
+
+    cudaStream_t stream;
+    ck(cudaStreamCreate(&amp;stream));
+    ck(cudaMemcpyAsync(buffer[0], input_data_host, input_size * getElementSize(dataTypeInput), cudaMemcpyHostToDevice, stream));
+    //print_device(buffer[0], input_size);
+    //cudaStreamSynchronize(stream);
+    context-&gt;enqueueV2(buffer.data(), stream, nullptr);
+    ck(cudaMemcpyAsync(out_data_host, buffer[1], output_size * getElementSize(dataTypeOutput), cudaMemcpyDeviceToHost, stream));
+    cudaStreamSynchronize(stream);
+    cudaStreamDestroy(stream);
+    cout&lt;&lt;&quot;output:&quot;&lt;&lt;endl;
+    for (int i = 0; i &lt; batchSize; i++){
+        cout&lt;&lt;out_data_host[i]&lt;&lt;endl;
+    }
+    cout&lt;&lt;&quot;End!&quot;&lt;&lt;endl;
+
+    context-&gt;destroy();
+    engine-&gt;destroy();
+    ck(cudaFree(buffer[0]));
+    ck(cudaFree(buffer[1]));
+    ck(cudaFreeHost(input_data_host));
+    ck(cudaFreeHost(out_data_host));
+    return 0;
+}
+</code></pre>
+<h2 id="3-使用int-8加速以及提高准确性to-do">3 使用int 8加速以及提高准确性(To Do)</h2>
+
+</article>
+
+
+      
+        <div class="my-4">
+    
+    <a href="http://pzhao-eng.github.io/tags/tensorrt/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#TensorRT</a>
+    
+</div>
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="http://pzhao-eng.github.io/posts/git_learn/" class="block">Git实用技巧</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-pytorch推理过程">1. pytorch推理过程</a></li>
+    <li><a href="#2-tensorrt-进行推理过程">2. TensorRT 进行推理过程</a></li>
+    <li><a href="#3-使用int-8加速以及提高准确性to-do">3 使用int 8加速以及提高准确性(To Do)</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.zhaopeng.com/">Zhao Peng</a> 
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>
