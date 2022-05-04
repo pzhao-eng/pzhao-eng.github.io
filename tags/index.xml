@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Zhao Peng&#39;s Blogs</title>
-    <link>http://pzhao-eng.github.io/tags.html</link>
+    <link>/tags.html</link>
     <description>Recent content in Tags on Zhao Peng&#39;s Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.zhaopeng.com/&#34;&gt;Zhao Peng&lt;/a&gt; 
 </copyright>
-    <lastBuildDate>Wed, 20 Apr 2022 08:47:11 +0100</lastBuildDate><atom:link href="http://pzhao-eng.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 08:47:11 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TensorRT</title>
-      <link>http://pzhao-eng.github.io/tags/tensorrt.html</link>
+      <link>/tags/tensorrt.html</link>
       <pubDate>Wed, 20 Apr 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/tags/tensorrt.html</guid>
+      <guid>/tags/tensorrt.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>http://pzhao-eng.github.io/tags/git.html</link>
+      <link>/tags/git.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/tags/git.html</guid>
+      <guid>/tags/git.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>http://pzhao-eng.github.io/tags/markdown.html</link>
+      <link>/tags/markdown.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/tags/markdown.html</guid>
+      <guid>/tags/markdown.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>yolo</title>
-      <link>http://pzhao-eng.github.io/tags/yolo.html</link>
+      <link>/tags/yolo.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/tags/yolo.html</guid>
+      <guid>/tags/yolo.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>协同工作</title>
-      <link>http://pzhao-eng.github.io/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C.html</link>
+      <link>/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C.html</guid>
+      <guid>/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>卷积神经网络</title>
-      <link>http://pzhao-eng.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html</link>
+      <link>/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html</guid>
+      <guid>/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>软件安装</title>
-      <link>http://pzhao-eng.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85.html</link>
+      <link>/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85.html</guid>
+      <guid>/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85.html</guid>
       <description></description>
     </item>
     

@@ -2,77 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://pzhao-eng.github.io/categories.html</loc>
+    <loc>/categories.html</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts.html</loc>
+    <loc>/posts.html</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags.html</loc>
+    <loc>/tags.html</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags/tensorrt.html</loc>
+    <loc>/tags/tensorrt.html</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts/onnx_to_tensorrt.html</loc>
+    <loc>/posts/onnx_to_tensorrt.html</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/categories/%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F.html</loc>
+    <loc>/categories/%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F.html</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags/git.html</loc>
+    <loc>/tags/git.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/categories/git.html</loc>
+    <loc>/categories/git.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts/git_learn.html</loc>
+    <loc>/posts/git_learn.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags/markdown.html</loc>
+    <loc>/tags/markdown.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</loc>
+    <loc>/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html</loc>
+    <loc>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html</loc>
+    <loc>/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags/yolo.html</loc>
+    <loc>/tags/yolo.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts/yolov5_face_run_log.html</loc>
+    <loc>/posts/yolov5_face_run_log.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html</loc>
+    <loc>/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C.html</loc>
+    <loc>/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html</loc>
+    <loc>/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</loc>
+    <loc>/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.html</loc>
+    <loc>/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85.html</loc>
+    <loc>/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85.html</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>http://pzhao-eng.github.io/about.html</loc>
+    <loc>/about.html</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://pzhao-eng.github.io/authors.html</loc>
+    <loc>/authors.html</loc>
   </url><url>
-    <loc>http://pzhao-eng.github.io/series.html</loc>
+    <loc>/series.html</loc>
   </url>
 </urlset>

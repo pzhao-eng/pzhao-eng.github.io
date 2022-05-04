@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>实用技巧 on Zhao Peng&#39;s Blogs</title>
-    <link>http://pzhao-eng.github.io/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</link>
+    <link>/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</link>
     <description>Recent content in 实用技巧 on Zhao Peng&#39;s Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.zhaopeng.com/&#34;&gt;Zhao Peng&lt;/a&gt; 
 </copyright>
-    <lastBuildDate>Fri, 25 Mar 2022 08:47:11 +0100</lastBuildDate><atom:link href="http://pzhao-eng.github.io/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Mar 2022 08:47:11 +0100</lastBuildDate><atom:link href="/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>markdown使用技巧</title>
-      <link>http://pzhao-eng.github.io/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</link>
+      <link>/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</guid>
+      <guid>/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</guid>
       <description>1. 图床：PicGo+Github PicGo安装 Mac:brew install picgo --cask 教程</description>
     </item>
     
     <item>
       <title>TensorRT的安装</title>
-      <link>http://pzhao-eng.github.io/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html</link>
+      <link>/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html</guid>
+      <guid>/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html</guid>
       <description>1 protobuf安装,安装教程2 CMake(6):多个Protobuf版本时让find_package正确选择 需要安装protobuf3.12.0以</description>
     </item>
     
     <item>
       <title>使用tinyproxy代理安装软件</title>
-      <link>http://pzhao-eng.github.io/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html</link>
+      <link>/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>http://pzhao-eng.github.io/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html</guid>
+      <guid>/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html</guid>
       <description>使用无法联网的超算或者集群时候，直接从源代码安装较为繁琐。通过可以联网的机器作为代理，便可以在集群上联网安装软件。目前教程暂时不涉及设置代理需要roo</description>
     </item>
     
