@@ -111,7 +111,7 @@
     },
     "headline": "Git实用技巧 | Zhao Peng\u0027s Blogs","datePublished": "2022-03-25T08:47:11+01:00",
     "dateModified": "2022-03-25T08:47:11+01:00",
-    "wordCount":  907 ,
+    "wordCount":  1086 ,
     "publisher": {
         "@type": "Person",
         "name": "Zhao Peng",
@@ -261,7 +261,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>3 min read</span>
   </div>
 
   
@@ -286,6 +286,7 @@
 <pre><code class="language-git">git config --global user.name &quot;Your Name&quot;
 git config --global user.email &quot;email@example.com&quot;
 </code></pre>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/900375748016320">参考链接</a></p>
 <h2 id="2-创建git库">2. 创建git库</h2>
 <pre><code>git init
 </code></pre>
@@ -317,7 +318,14 @@ git reset --hard HEAD~100 //回退到上100个版本
 <li>管理以及修改</li>
 <li>撤销修改
 <ul>
-<li><code>git restore</code>可以恢复到上次<code>commit</code>版本</li>
+<li><code>git restore</code>可以恢复<code>暂存区</code>的某个文件到到上次<code>commit</code>版本</li>
+<li><code>git revert</code>恢复到提前某个版本，但是会保存旧commit信息，并且会自动提交commit信息标记这次revert（HEAD指针向前）；
+<ul>
+<li>conflict发生后需要手动修改conficct文件，然后<code>git add &lt;modified_file&gt;</code></li>
+<li>运行<code>git revert --continue</code>完成操作</li>
+</ul>
+</li>
+<li><code>git reset</code>HEAD恢复到以前版本，丢失部分commit信息（HEAD指针向后移动）。</li>
 </ul>
 </li>
 <li>删除文件
@@ -328,7 +336,7 @@ git reset --hard HEAD~100 //回退到上100个版本
 </ul>
 <h2 id="4-远程库">4. 远程库</h2>
 <ul>
-<li>关联远程库<code>git remote add origin git@github.com:michaelliao/learngit.git</code></li>
+<li>关联远程库<code>git remote add origin git@github.com:pzhao-eng/git_learn.git</code></li>
 <li>第一次推动本地内容到远程库<code> git push -u origin master</code></li>
 <li>本地修改后推送<code>git push origin master</code></li>
 <li>删除远程库</li>
