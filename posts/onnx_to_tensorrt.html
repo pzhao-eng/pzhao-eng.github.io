@@ -111,7 +111,7 @@
     },
     "headline": "使用onnx导出模型文献通过TensorRT加速推理过程 | Zhao Peng\u0027s Blogs","datePublished": "2022-04-20T08:47:11+01:00",
     "dateModified": "2022-04-20T08:47:11+01:00",
-    "wordCount":  1292 ,
+    "wordCount":  1352 ,
     "publisher": {
         "@type": "Person",
         "name": "Zhao Peng",
@@ -425,13 +425,16 @@ print(&quot;Succeeded converting model into onnx!&quot;)
 #include &lt;cassert&gt;
 #include &lt;stdexcept&gt;
 #include &quot;print_array.h&quot;
+#define STB_IMAGE_IMPLEMENTATION
+#include &quot;stb_image.h&quot;
 
 using namespace nvinfer1;
 using namespace std;
 
 #define ck(call) check(call, __LINE__, __FILE__)
-const int inputSize_H = 28;
-const int inputSize_W = 28;
+int inputChannel = 0;
+int inputSize_H = 0;
+int inputSize_W = 0;
 
 const std::string onnxFile {&quot;./model.onnx&quot;};
 const std::string trtFile {&quot;./model.plan&quot;};
@@ -501,12 +504,12 @@ void readFiles(const vector&lt;string&gt; &amp;fileNames, uint8_t *input_data_ho
         uint8_t *fileData = &amp;(input_data_host[offset]);
         infile.read(reinterpret_cast&lt;char*&gt;(fileData), vol);
         offset += (h * w);
-        //cout &lt;&lt; &quot;Input:\n&quot;;
-        //for (size_t i = 0; i &lt; vol; i++)
-        //{
-        //    cout &lt;&lt; (&quot; .:-=+*#%@&quot;[fileData[i] / 26]) &lt;&lt; (((i + 1) % w) ? &quot;&quot; : &quot;\n&quot;);
-        //}
-        //cout &lt;&lt; std::endl; 
+        cout &lt;&lt; &quot;Input:\n&quot;;
+        for (size_t i = 0; i &lt; vol; i++)
+        {
+            cout &lt;&lt; (&quot; .:-=+*#%@&quot;[fileData[i] / 26]) &lt;&lt; (((i + 1) % w) ? &quot;&quot; : &quot;\n&quot;);
+        }
+        cout &lt;&lt; std::endl; 
     }
 }
 
@@ -529,6 +532,13 @@ int64_t volume(const nvinfer1::Dims&amp; d)
     return std::accumulate(d.d, d.d + d.nbDims, 1, std::multiplies&lt;int64_t&gt;());
 }
 
+void print_dimensione_val(const Dims &amp;val)
+{
+    for (int i = 0; i &lt; val.nbDims; i++){
+        cout&lt;&lt;val.d[i]&lt;&lt;&quot; &quot;;
+    }
+    cout&lt;&lt;endl;
+}
 
 int main()
 {
@@ -553,30 +563,38 @@ int main()
     profile-&gt;setDimensions(inputTensor-&gt;getName(), OptProfileSelector::kMAX, Dims4{16, 1, 28, 28});
     config-&gt;addOptimizationProfile(profile);
     
-    network-&gt;unmarkOutput(*network-&gt;getOutput(0)); //?
+    network-&gt;unmarkOutput(*network-&gt;getOutput(0));
     auto engine = builder-&gt;buildEngineWithConfig(*network, *config);
     network-&gt;destroy();
     builder-&gt;destroy();
 
     vector&lt;string&gt; fileNames;
-    fileNames.push_back(&quot;../MNIST/0.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/1.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/2.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/3.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/4.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/5.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/6.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/7.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/8.pgm&quot;);
-    fileNames.push_back(&quot;../MNIST/9.pgm&quot;);
+    fileNames.push_back(&quot;./0.jpg&quot;);
+    fileNames.push_back(&quot;./1.jpg&quot;);
+    fileNames.push_back(&quot;./2.jpg&quot;);
+    fileNames.push_back(&quot;./3.jpg&quot;);
+    fileNames.push_back(&quot;./4.jpg&quot;);
+    fileNames.push_back(&quot;./5.jpg&quot;);
+    fileNames.push_back(&quot;./6.jpg&quot;);
+    fileNames.push_back(&quot;./7.jpg&quot;);
+    fileNames.push_back(&quot;./8.png&quot;);
+    fileNames.push_back(&quot;./9.jpg&quot;);
     int batchSize = fileNames.size();
-    uint8_t *input_data = (uint8_t *)malloc(batchSize * inputSize_H * inputSize_W);
-    readFiles(fileNames, input_data);
+    vector&lt;unsigned char *&gt;input_data; 
+    for (int i = 0; i &lt; batchSize; i++){
+         unsigned char *data = stbi_load(fileNames[i].c_str(), &amp;inputSize_H, &amp;inputSize_W, &amp;inputChannel, 0);
+         input_data.emplace_back(data);
+    }
+    cout&lt;&lt;&quot;image size = &quot;&lt;&lt;inputChannel&lt;&lt;&quot; &quot;&lt;&lt;inputSize_H&lt;&lt;&quot; &quot;&lt;&lt;inputSize_W&lt;&lt;endl;
 
     auto context = engine-&gt;createExecutionContext();
+    cudaStream_t stream;
+    ck(cudaStreamCreate(&amp;stream));
+    context-&gt;setOptimizationProfile(0);
+    //context-&gt;setOptimizationProfileAsync(0, stream);
     Dims4 inputDims2{batchSize, 1, inputSize_H, inputSize_W};
-    //cout&lt;&lt;engine-&gt;getBindingDimensions(0).nbDims&lt;&lt;endl;
-    //cout&lt;&lt;engine-&gt;getBindingDimensions(1).nbDims&lt;&lt;endl;
+    cout&lt;&lt;&quot;input dims of engine = &quot;;
+    print_dimensione_val(engine-&gt;getBindingDimensions(0));
     context-&gt;setBindingDimensions(0, inputDims2);
 
     // alloc device and host memory
@@ -597,15 +615,13 @@ int main()
     int *out_data_host = nullptr;
     ck(cudaMallocHost((void **)&amp;input_data_host, input_size * getElementSize(dataTypeInput)));
     ck(cudaMallocHost((void **)&amp;out_data_host, output_size * getElementSize(dataTypeOutput)));
-    for (int i = 0; i &lt; batchSize * inputSize_H * inputSize_W; i++){
-        input_data_host[i] = static_cast&lt;float&gt;(input_data[i]);
+    for (int i = 0; i &lt; batchSize; i++){
+        for (int j = 0; j &lt; inputSize_H * inputSize_W; j++){
+            input_data_host[i * inputSize_H * inputSize_W + j] = static_cast&lt;float&gt;(input_data[i][j]);
+        }
     }
 
-    cudaStream_t stream;
-    ck(cudaStreamCreate(&amp;stream));
     ck(cudaMemcpyAsync(buffer[0], input_data_host, input_size * getElementSize(dataTypeInput), cudaMemcpyHostToDevice, stream));
-    //print_device(buffer[0], input_size);
-    //cudaStreamSynchronize(stream);
     context-&gt;enqueueV2(buffer.data(), stream, nullptr);
     ck(cudaMemcpyAsync(out_data_host, buffer[1], output_size * getElementSize(dataTypeOutput), cudaMemcpyDeviceToHost, stream));
     cudaStreamSynchronize(stream);
