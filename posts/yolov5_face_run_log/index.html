@@ -249,7 +249,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">yolov5-face 运行log</h1>
@@ -451,8 +451,8 @@ A21 & A22 & -A21 * b_1 - A22 * b_2
 \end{array}\right]
 $$
 </div>
-得到d2s的变换矩阵后可以通过双线性插值得到des图片：
-<p><img src="https://raw.githubusercontent.com/pzhao-eng/figurebed/main/bilinear_interp.jpg" width = "300" height = "300" alt="双线性差值示意图" align=center /></p>
+<p>得到d2s的变换矩阵后可以通过双线性插值得到des图片：</p>
+<p><img src="/Users/pengzhao/my_blogs/content/posts/images/bilinear_interp.jpg" width = "300" height = "300" alt="双线性差值示意图" align=center /></p>
 <pre><code class="language-cpp">__global__ void warpaffine_kernel( 
     uint8_t* src, int src_line_size, int src_width, 
     int src_height, float* dst, int dst_width, 
@@ -611,51 +611,11 @@ $$
 
     </div>
     
-      <div class="col-span-2">
-        
-        
-          <div
-  class="
-    bg-primary-bg
-   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
->
-  <h3>On This Page</h3>
-</div>
-<div
-  class="sticky-toc  hidden px-6 pb-6 lg:block"
->
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1--yolov5-facehttpsgithubcomgassolidyolov5-face-python-infer过程实现">1  <a href="https://github.com/gasSolid/yolov5-face">yolov5-face</a> python infer过程实现</a>
-      <ul>
-        <li><a href="#10-yolov5介绍">1.0 yolov5介绍</a></li>
-        <li><a href="#11-运行过程httpswwwcxymmnetarticlem0_58348465121423964">1.1 <a href="https://www.cxymm.net/article/m0_58348465/121423964">运行过程</a></a></li>
-        <li><a href="#12-问题汇总">1.2 问题汇总</a></li>
-      </ul>
-    </li>
-    <li><a href="#2-yolov5-c推理过程">2 yolov5 c++推理过程</a>
-      <ul>
-        <li><a href="#21-前处理">2.1 前处理</a></li>
-        <li><a href="#22后处理">2.2后处理</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-</div>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    enableStickyToc();
-  });
-</script>
-
-        
-      </div>
-    
 
     
     
       <div
-        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
         

@@ -2,89 +2,89 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/categories.html</loc>
+    <loc>/categories/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/interposition.html</loc>
+    <loc>/tags/interposition/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/linux.html</loc>
+    <loc>/tags/linux/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/categories/linux.html</loc>
+    <loc>/categories/linux/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts.html</loc>
+    <loc>/posts/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags.html</loc>
+    <loc>/tags/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
     <loc>/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/%E5%BA%93%E6%89%93%E6%A1%A9lib-interposition.html</loc>
+    <loc>/posts/%E5%BA%93%E6%89%93%E6%A1%A9lib-interposition/</loc>
     <lastmod>2022-12-26T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/tensorrt.html</loc>
+    <loc>/tags/tensorrt/</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/onnx_to_tensorrt.html</loc>
+    <loc>/posts/onnx_to_tensorrt/</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/categories/%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F.html</loc>
+    <loc>/categories/%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</loc>
     <lastmod>2022-04-20T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/git.html</loc>
+    <loc>/tags/git/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/categories/git.html</loc>
+    <loc>/categories/git/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/git_learn.html</loc>
+    <loc>/posts/git_learn/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/markdown.html</loc>
+    <loc>/tags/markdown/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</loc>
+    <loc>/posts/markdown%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html</loc>
+    <loc>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85.html</loc>
+    <loc>/posts/tensorrt%E7%9A%84%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/yolo.html</loc>
+    <loc>/tags/yolo/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/yolov5_face_run_log.html</loc>
+    <loc>/posts/yolov5_face_run_log/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6.html</loc>
+    <loc>/posts/%E4%BD%BF%E7%94%A8tinyproxy%E4%BB%A3%E7%90%86%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C.html</loc>
+    <loc>/tags/%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html</loc>
+    <loc>/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7.html</loc>
+    <loc>/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.html</loc>
+    <loc>/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85.html</loc>
+    <loc>/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2022-03-25T08:47:11+01:00</lastmod>
   </url><url>
-    <loc>/about.html</loc>
+    <loc>/about/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>/authors.html</loc>
+    <loc>/authors/</loc>
   </url><url>
-    <loc>/series.html</loc>
+    <loc>/series/</loc>
   </url>
 </urlset>

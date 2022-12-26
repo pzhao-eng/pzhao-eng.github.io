@@ -111,7 +111,7 @@
     },
     "headline": "使用tinyproxy代理安装软件 | Zhao Peng\u0027s Blogs","datePublished": "2022-03-25T08:47:11+01:00",
     "dateModified": "2022-03-25T08:47:11+01:00",
-    "wordCount":  337 ,
+    "wordCount":  335 ,
     "publisher": {
         "@type": "Person",
         "name": "Zhao Peng",
@@ -247,7 +247,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">使用tinyproxy代理安装软件</h1>
@@ -285,7 +285,8 @@
   
 
   <p>使用无法联网的超算或者集群时候，直接从源代码安装较为繁琐。通过可以联网的机器作为代理，便可以在集群上联网安装软件。目前教程暂时不涉及设置代理需要root权限，或者设置比较繁琐的代理。</p>
-<h2 id="1-代理服务器端需要的操作需要联网的机器">1. 代理服务器端需要的操作（需要联网的机器）：</h2>
+<ul>
+<li>代理服务器端需要的操作（可以联网的机器）：
 <ul>
 <li>
 <p>安装tinyproxy<code>sudo apt-get install tinyproxy</code></p>
@@ -309,7 +310,8 @@
 <p>可以通过<code>ip addr</code>查看代理服务器的ip地址</p>
 </li>
 </ul>
-<h2 id="2-节点上使用代理过程">2. 节点上使用代理过程</h2>
+</li>
+<li>节点上使用代理过程
 <ul>
 <li>测试代理是否搭建成功：
 <ul>
@@ -320,6 +322,8 @@
 <ul>
 <li><code>pip install --proxy=192.168.2.22:8888 tensorFlow</code>或者<code>pip install --proxy http://192.168.1.21:8888 tensorflow</code></li>
 <li><code>pip install --proxy http://192.168.2.22:8888 tensorFlow</code>或者<code>pip install --proxy http://192.168.1.21:8888 tensorflow</code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -365,40 +369,11 @@
 
     </div>
     
-      <div class="col-span-2">
-        
-        
-          <div
-  class="
-    bg-primary-bg
-   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
->
-  <h3>On This Page</h3>
-</div>
-<div
-  class="sticky-toc  hidden px-6 pb-6 lg:block"
->
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-代理服务器端需要的操作需要联网的机器">1. 代理服务器端需要的操作（需要联网的机器）：</a></li>
-    <li><a href="#2-节点上使用代理过程">2. 节点上使用代理过程</a></li>
-  </ul>
-</nav>
-</div>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    enableStickyToc();
-  });
-</script>
-
-        
-      </div>
-    
 
     
     
       <div
-        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
       >
         <h3>See Also</h3>
         

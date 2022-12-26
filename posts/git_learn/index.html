@@ -111,7 +111,7 @@
     },
     "headline": "Git实用技巧 | Zhao Peng\u0027s Blogs","datePublished": "2022-03-25T08:47:11+01:00",
     "dateModified": "2022-03-25T08:47:11+01:00",
-    "wordCount":  907 ,
+    "wordCount":  902 ,
     "publisher": {
         "@type": "Person",
         "name": "Zhao Peng",
@@ -245,7 +245,7 @@
   
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
   <h1 class="mb-4">Git实用技巧</h1>
@@ -282,11 +282,15 @@
   
   
 
-  <h2 id="1-安装git并为这台机器上所有git仓库配置">1. 安装Git并为这台机器上所有Git仓库配置</h2>
+  <ol>
+<li>安装Git并为这台机器上所有Git仓库配置</li>
+</ol>
 <pre><code class="language-git">git config --global user.name &quot;Your Name&quot;
 git config --global user.email &quot;email@example.com&quot;
 </code></pre>
-<h2 id="2-创建git库">2. 创建git库</h2>
+<ol start="2">
+<li>创建git库</li>
+</ol>
 <pre><code>git init
 </code></pre>
 <p>将文件放到git仓库中</p>
@@ -296,7 +300,9 @@ git log 查看提交记录
 git log --pretty=oneline
 git status查看仓库状态
 </code></pre>
-<h2 id="3-时光穿梭机">3. 时光穿梭机</h2>
+<ol start="3">
+<li>
+<p>时光穿梭机</p>
 <ul>
 <li>版本回退</li>
 </ul>
@@ -326,7 +332,9 @@ git reset --hard HEAD~100 //回退到上100个版本
 </ul>
 </li>
 </ul>
-<h2 id="4-远程库">4. 远程库</h2>
+</li>
+<li>
+<p>远程库</p>
 <ul>
 <li>关联远程库<code>git remote add origin git@github.com:michaelliao/learngit.git</code></li>
 <li>第一次推动本地内容到远程库<code> git push -u origin master</code></li>
@@ -340,7 +348,9 @@ origin  https://github.com/gasSolid/git_learn.git (push)
 // 删除远程库
 git remote rm origin
 </code></pre>
-<h2 id="5-分支管理">5. 分支管理</h2>
+</li>
+<li>
+<p>分支管理</p>
 <ul>
 <li>创建分支
 <ul>
@@ -385,6 +395,8 @@ git remote rm origin
 </li>
 <li>Rebaseres</li>
 </ul>
+</li>
+</ol>
 
 </article>
 
@@ -431,38 +443,6 @@ git remote rm origin
 
 
     </div>
-    
-      <div class="col-span-2">
-        
-        
-          <div
-  class="
-    bg-primary-bg
-   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
->
-  <h3>On This Page</h3>
-</div>
-<div
-  class="sticky-toc  hidden px-6 pb-6 lg:block"
->
-  <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-安装git并为这台机器上所有git仓库配置">1. 安装Git并为这台机器上所有Git仓库配置</a></li>
-    <li><a href="#2-创建git库">2. 创建git库</a></li>
-    <li><a href="#3-时光穿梭机">3. 时光穿梭机</a></li>
-    <li><a href="#4-远程库">4. 远程库</a></li>
-    <li><a href="#5-分支管理">5. 分支管理</a></li>
-  </ul>
-</nav>
-</div>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    enableStickyToc();
-  });
-</script>
-
-        
-      </div>
     
 
     

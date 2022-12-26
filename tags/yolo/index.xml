@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>yolo on Zhao Peng&#39;s Blogs</title>
-    <link>/tags/yolo.html</link>
+    <link>/tags/yolo/</link>
     <description>Recent content in yolo on Zhao Peng&#39;s Blogs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://pzhao-eng.github.io/&#34;&gt;Zhao Peng&lt;/a&gt; 
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.zhaopeng.com/&#34;&gt;Zhao Peng&lt;/a&gt; 
 </copyright>
     <lastBuildDate>Fri, 25 Mar 2022 08:47:11 +0100</lastBuildDate><atom:link href="/tags/yolo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TensorRT中plugin实战(TO DO)</title>
-      <link>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html</link>
+      <link>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98/</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98.html</guid>
+      <guid>/posts/tensorrt%E4%B8%ADplugin%E5%AE%9E%E6%88%98/</guid>
       <description>本文主要参考了Chinthaka Gamanayake的工作，将实现在tensorRT中实现adderNet的plugin，并用于adderNet的推理</description>
     </item>
     
     <item>
       <title>yolov5-face 运行log</title>
-      <link>/posts/yolov5_face_run_log.html</link>
+      <link>/posts/yolov5_face_run_log/</link>
       <pubDate>Fri, 25 Mar 2022 08:47:11 +0100</pubDate>
       
-      <guid>/posts/yolov5_face_run_log.html</guid>
+      <guid>/posts/yolov5_face_run_log/</guid>
       <description>1 yolov5-face python infer过程实现 1.0 yolov5介绍 快速介绍 从yolov1-v5 masked face yolov5 吴恩达deeplearning.ai 大白资料 1.1 运行过程 下载WIDERFac</description>
     </item>
     
